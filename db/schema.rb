@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_05_060920) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_05_072703) do
   create_table "appointments", force: :cascade do |t|
     t.date "appointment_date"
     t.datetime "created_at", null: false
@@ -29,13 +29,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_05_060920) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "industries_sectors", force: :cascade do |t|
-    t.integer "sector_id", null: false
+  create_table "industries_sectors", id: false, force: :cascade do |t|
     t.integer "industry_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["industry_id"], name: "index_industries_sectors_on_industry_id"
-    t.index ["sector_id"], name: "index_industries_sectors_on_sector_id"
+    t.integer "sector_id", null: false
+    t.index ["industry_id", "sector_id"], name: "index_industries_sectors_on_industry_id_and_sector_id"
   end
 
   create_table "patients", force: :cascade do |t|
@@ -61,6 +58,4 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_05_060920) do
 
   add_foreign_key "appointments", "patients"
   add_foreign_key "appointments", "physicians"
-  add_foreign_key "industries_sectors", "industries"
-  add_foreign_key "industries_sectors", "sectors"
 end
