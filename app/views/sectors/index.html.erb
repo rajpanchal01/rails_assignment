@@ -1,0 +1,19 @@
+<h2>Listing Sectors</h2>
+<br/>
+<%= link_to 'New Sector', new_sector_path ,class:"btn btn-sm btn-outline-danger"%>
+<table class="table">
+  <tr>
+    <th>Name</th>
+    <th>Industries</th>
+  </tr>
+
+<% @sectors.each do |p| %>
+  <tr>
+    <td><%= p.name %></td>
+    <td><%= p.industries.count%></td>
+    <td><%= link_to 'edit',edit_sector_path(p),class: "btn btn-sm btn-outline-dark" %></td> 
+    <td><%= link_to 'show',sector_path(p),class: "btn btn-sm btn-outline-dark" %></td> 
+  </tr>
+<% end %>
+</table>
+<%= link_to 'Back', page2_path,class:"btn btn-sm btn-outline-danger"%>

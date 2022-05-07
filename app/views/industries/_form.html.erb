@@ -1,0 +1,25 @@
+<%= form_with model:  @industry do |f| %> 
+    <div class="field">
+      <%= f.label :name %><br />
+      <%= f.text_field :name,class:"form-control border-warning" %>
+    </div>
+    <div class="field">
+      <%= f.label :email%><br />
+      <%= f.text_field :email,class:"form-control border-warning"%>
+    </div>
+    <p> What Sectors do you have?
+
+      <div class="field">
+        <% for sector in Sector.all %>
+            <div>
+                <%= check_box_tag "industry[sector_ids][]", sector.id,@industry.sectors.include?(sector) %>
+                <%= sector.name %>
+            </div>
+        <% end %>
+    </div>
+
+      </p>
+    <div class="actions">
+      <%= f.submit'save' ,class:"btn btn-sm btn-outline-primary"%>
+    </div>
+  <% end %>

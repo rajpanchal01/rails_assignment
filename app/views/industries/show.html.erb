@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+<p>
+  <b>Name:</b>
+  <%= @industry.name %>
+</p>
+<p>
+  <b>Email:</b>
+  <%= @industry.email %>
+</p>
+<p>
+  <b>registration_number:</b>
+  <%= @industry.registration_number %>
+</p>
+<p><b>Sectors</b><p>
+<% @industry.sectors.each do |a|%>
+    <%= a.name %>
+    </br>
+<%end%>
+
+<%= link_to 'Back', industries_path,class:"btn btn-sm btn-outline-success"%>

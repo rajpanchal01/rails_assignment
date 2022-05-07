@@ -1,0 +1,23 @@
+<h2>Listing Patients</h2>
+<br/>
+<%= link_to 'New Patient', new_patient_path ,class:"btn btn-sm btn-outline-danger"%>
+<table class="table">
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Total Physician</th>
+    <th>Total Appointment</th>
+    <th>Show</th>
+  </tr>
+
+<% @patients.each do |patient| %>
+  <tr>
+    <td><%= patient.name %></td>
+    <td><%= patient.email %></td>
+    <td><%= patient.physicians.uniq.count %></td>
+    <td><%= patient.appointments.count %></td>
+    <td><%= link_to 'show',patient_path(patient),class: "btn btn-sm btn-outline-dark" %></td> 
+  </tr>
+<% end %>
+</table>
+<%= link_to 'back',page1_path,class: "btn btn-sm btn-outline-danger" %>

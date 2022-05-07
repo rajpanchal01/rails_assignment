@@ -1,0 +1,13 @@
+<%= form_with model:  @physician do |f| %> 
+    <div class="field">
+      <%= f.label :name %><br />
+      <%= f.text_field :name,class:"form-control border-warning" %>
+    </div>
+    <div class="field">
+      <%= f.label :email %><br />
+      <%= f.text_field :email, class:"border-warning"%>
+    </div>
+    <div class="actions">
+      <%= f.submit'save' ,class:"btn btn-sm btn-outline-primary"%>
+    </div>
+  <% end %>

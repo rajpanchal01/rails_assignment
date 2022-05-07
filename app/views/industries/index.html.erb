@@ -1,0 +1,23 @@
+<h2>Listing Industries</h2>
+<br/>
+<%= link_to 'New Industry', new_industry_path ,class:"btn btn-sm btn-outline-danger"%>
+<table class="table">
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Registration Number</th>
+    <th>Sectors in Industry</th>
+  </tr>
+
+<% @industries.each do |p| %>
+  <tr>
+    <td><%= p.name %></td>
+    <td><%= p.email %></td>
+    <td><%= p.registration_number %></td>
+    <td><%= p.sectors.count%></td>
+    <td><%= link_to 'edit',edit_industry_path(p),class: "btn btn-sm btn-outline-dark" %></td> 
+    <td><%= link_to 'show',industry_path(p),class: "btn btn-sm btn-outline-dark" %></td> 
+  </tr>
+<% end %>
+</table>
+<%= link_to 'Back',page2_path,class: "btn btn-sm btn-outline-danger" %>
